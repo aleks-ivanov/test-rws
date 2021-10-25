@@ -1,1 +1,31 @@
 name: Test consumer
+
+on: 
+  push:
+  repository_dispatch:
+
+jobs:
+  data:
+    name: Data gathering
+    runs-on: ubuntu-20.04
+    environment: application_submission
+    outputs:
+      proj_original_repo: ${{ steps.project_info.outputs.proj_original_repo }}
+      proj_name: ${{ steps.project_info.outputs.proj_name }}
+    steps:
+      - name: Project information
+        id: project_info
+        shell: pwsh
+        run: |
+          $projOriginalRepo = "microsoft/amazing-app"
+          $projName = $projOriginalRepo.Split('/')[1]
+          echo "::set-output name=proj_original_repo::$(echo $projOriginalRepo)"
+          echo "::set-output name=proj_name::$(echo $projName)"
+
+  test-rw:
+    needs: data
+    name: Test RW
+    uses: aleks-ivanov/test-rws/.github/workflows/test-rw.yml@v1.0.0
+    with:
+      proj_original_repo: ${{ needs.data.outputs.proj_original_repo }}
+      proj_name: ${{ needs.data.outputs.proj_name }}

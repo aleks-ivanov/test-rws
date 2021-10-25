@@ -1,0 +1,23 @@
+name: Test RW
+
+on: 
+  workflow_call:
+    inputs:
+      proj_original_repo:
+        description: 'Original owner/repo pair'
+        default: 'default'
+        required: true
+        type: string
+      proj_name:
+        description: 'Name of the project'
+        default: 'default'
+        required: true
+        type: string
+
+jobs:
+  create-forks:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          echo "That's the full string ${{ inputs.proj_original_repo }}"
+          echo "That's half of the string ${{ inputs.proj_name }}"

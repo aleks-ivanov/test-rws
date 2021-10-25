@@ -19,5 +19,5 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: |
-          echo "That's the full string ${{ inputs.proj_original_repo }} for v1.0.1"
-          echo "That's half of the string ${{ inputs.proj_name }} for v1.0.1"
+          echo "That's the full string ${{ inputs.proj_original_repo }} for v1.0.2"
+          echo "That's half of the string ${{ inputs.proj_name }} for v1.0.2"

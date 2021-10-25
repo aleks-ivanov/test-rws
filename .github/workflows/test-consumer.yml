@@ -25,7 +25,7 @@ jobs:
   test-rw:
     needs: data
     name: Test RW
-    uses: aleks-ivanov/test-rws/.github/workflows/test-rw.yml@v1.0.0
+    uses: aleks-ivanov/test-rws/.github/workflows/test-rw.yml@v1
     with:
       proj_original_repo: ${{ needs.data.outputs.proj_original_repo }}
       proj_name: ${{ needs.data.outputs.proj_name }}

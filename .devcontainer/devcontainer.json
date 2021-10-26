@@ -18,4 +18,5 @@
 		"ms-azuretools.vscode-docker",
 		"ms-vscode.powershell",
 	],
+	"remoteUser": "vscode"
 }

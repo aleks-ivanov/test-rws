@@ -8,7 +8,6 @@ jobs:
   data:
     name: Data gathering
     runs-on: ubuntu-20.04
-    environment: application_submission
     outputs:
       proj_original_repo: ${{ steps.project_info.outputs.proj_original_repo }}
       proj_name: ${{ steps.project_info.outputs.proj_name }}

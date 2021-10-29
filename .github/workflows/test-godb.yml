@@ -11,4 +11,4 @@ jobs:
         uses: pipeline-foundation/get-origin-def-branch@main
         
       - run: |
-          echo "The default branch of this repository is ${{ steps.godb.output.default_branch }}"
+          echo "The default branch of this repository is ${{ steps.godb.outputs.default_branch }}"

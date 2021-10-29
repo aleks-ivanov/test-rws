@@ -1,0 +1,14 @@
+name: Test get origin default branch action
+
+on: [ workflow_dispatch ]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Get origin default branch
+        id: godb
+        uses: pipeline-foundation/get-origin-def-branch@main
+        
+      - run: |
+          echo "The default branch of this repository is ${{ steps.godb.output.default_branch }}"

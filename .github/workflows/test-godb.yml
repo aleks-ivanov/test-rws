@@ -6,9 +6,9 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - name: Get origin default branch
-        id: godb
-        uses: pipeline-foundation/get-origin-def-branch@main
+      - name: Get default branch from origin
+        id: get-origin-default-branch
+        uses: pipeline-foundation/get-origin-def-branch@v1.0.0
         
       - run: |
-          echo "The default branch of this repository is ${{ steps.godb.outputs.default_branch }}"
+          echo "The default branch of this repository is ${{ steps.get-origin-default-branch.outputs.default_branch }}"
